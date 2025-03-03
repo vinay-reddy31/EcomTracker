@@ -14,6 +14,20 @@ pnpm dev
 bun dev
 ```
 
+
+create a .env.local
+BRIGHT_DATA_USERNAME=###
+BRIGHT_DATA_PASSWORD=###
+
+MONGODB_URI=###
+
+
+EMAIL_PASSWORD=###
+
+
+EMAIL=###
+EMAIL_APP_PASSWORD=###
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
