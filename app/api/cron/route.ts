@@ -27,6 +27,7 @@ export async function GET() {
     const updatedProducts = await Promise.all(
       products.map(async (currentProduct) => {
         const scrapedProduct = await scrapeAmazonProduct(currentProduct.url);
+        console.log("scrapedProduct", scrapedProduct);
 
         if (!scrapedProduct) {
           console.log(`No data found for ${currentProduct.url}`);
@@ -44,8 +45,8 @@ export async function GET() {
             lowestPrice: getLowestPrice(updatedPriceHistory),
             highestPrice: getHighestPrice(updatedPriceHistory),
             averagePrice: getAveragePrice(updatedPriceHistory),
-            discountRate: scrapedProduct.discountrate,
-            isOutOfStock: scrapedProduct.isOutofStock,
+            discountRate: scrapedProduct.discountRate,
+            isOutOfStock: scrapedProduct.isOutOfStock,
           };
 
           const updatedProduct = await Product.findOneAndUpdate(
