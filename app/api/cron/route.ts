@@ -10,6 +10,10 @@ import {
   getLowestPrice,
 } from "@/lib/utils";
 
+interface User {
+  email: string;
+}
+
 export async function GET() {
   try {
     console.log("API route /api/cron hit! Running product scraping...");
@@ -71,7 +75,7 @@ export async function GET() {
               emailNotifType
             );
             const userEmails = updatedProduct.users.map(
-              (user: any) => user.email
+              (user: User) => user.email
             );
             await sendEmail(emailContent, userEmails);
           }
