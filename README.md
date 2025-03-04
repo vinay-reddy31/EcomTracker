@@ -25,7 +25,25 @@ EMAIL=###
 EMAIL_APP_PASSWORD=###
 
 ```
+### E-Com Tracker
+## Description
+The Price Tracking Web Application is a full-stack web application designed to help users monitor product prices and receive automated notifications when prices drop. By leveraging web scraping and cron jobs, the application ensures that users stay updated with the latest price changes, enabling them to purchase products at the best possible prices.
 
+The system allows users to select and track products from various online marketplaces. Once a user subscribes to a product, the application continuously monitors its price and automatically sends an email notification whenever a price drop occurs. This eliminates the need for manual tracking and ensures that users never miss a great deal.
+
+## Key Features
+🔹 User-Friendly Price Tracking
+Users can search for and select products they wish to track.
+The application stores product details, including the current price and URL.
+🔹 Automated Price Monitoring
+Uses web scraping to periodically check product prices from e-commerce websites.
+The backend runs cron jobs to automate price checking at scheduled intervals.
+🔹 Real-Time Price Alerts via Email
+Whenever a price drop is detected, the system automatically sends an email notification to the user.
+The email contains details such as the new price, previous price, and product link.
+
+
+## How to Use It?
 ![image](https://github.com/user-attachments/assets/f132b474-b8a5-409b-b28f-52b897734609)
 
 Copy the link of a Product
@@ -52,12 +70,8 @@ The tracking is in progresssss.....
 
 
 
+The product is live on https://ecom-tracker-app.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
