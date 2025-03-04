@@ -32,13 +32,13 @@ The Price Tracking Web Application is a full-stack web application designed to h
 The system allows users to select and track products from various online marketplaces. Once a user subscribes to a product, the application continuously monitors its price and automatically sends an email notification whenever a price drop occurs. This eliminates the need for manual tracking and ensures that users never miss a great deal.
 
 ## Key Features
-🔹 User-Friendly Price Tracking
+-🔹 User-Friendly Price Tracking
 Users can search for and select products they wish to track.
 The application stores product details, including the current price and URL.
-🔹 Automated Price Monitoring
+-🔹 Automated Price Monitoring
 Uses web scraping to periodically check product prices from e-commerce websites.
 The backend runs cron jobs to automate price checking at scheduled intervals.
-🔹 Real-Time Price Alerts via Email
+-🔹 Real-Time Price Alerts via Email
 Whenever a price drop is detected, the system automatically sends an email notification to the user.
 The email contains details such as the new price, previous price, and product link.
 
