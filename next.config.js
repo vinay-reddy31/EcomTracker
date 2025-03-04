@@ -1,11 +1,16 @@
-// /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverActions: true,
-    serverComponentsExternalPackages: ["mongoose"],
+    serverActions: {}, // Keep if needed
   },
+  serverExternalPackages: ["mongoose"], // Keep this
   images: {
-    domains: ["m.media-amazon.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+      },
+    ],
   },
 };
 

@@ -48,11 +48,11 @@ export async function scrapeAmazonProduct(url: string) {
       $("#imgBlkFront").attr("data-a-dynamic-image") ||
       $("#landingImage").attr("data-a-dynamic-image");
 
-    const imageUrls = Object.keys(JSON.parse(images));
+    const imageUrls = images ? Object.keys(JSON.parse(images)) : [];
 
     const currency = extractCurrency($(".a-price-symbol"));
 
-    const discountrate = $(".savingsPercentage").text().replace(/[-%]/g, "");
+    const discountRate = $(".savingsPercentage").text().replace(/[-%]/g, "");
 
     const description = extractDescription($);
 
@@ -74,11 +74,11 @@ export async function scrapeAmazonProduct(url: string) {
       currentPrice: Number(currentPrice) || Number(originalPrice),
       originalPrice: Number(originalPrice) || Number(currentPrice),
       priceHistory: [],
-      discountrate: Number(discountrate),
+      discountRate: Number(discountRate),
       category: "category",
       reviewsCount: 100,
       stars: 4.5,
-      isOutofStock: outofstock,
+      isOutOfStock: outofstock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),
       highestPrice: Number(originalPrice) || Number(currentPrice),
@@ -87,7 +87,7 @@ export async function scrapeAmazonProduct(url: string) {
     // console.log(data);
     return data;
   } catch (error: any) {
-    throw new Error(`Failed to scrape Amazon Product:${error.message}`);
+    console.error(`Failed to scrape Amazon Product:${error.message}`);
   }
 
   //BrightData proxy configuration

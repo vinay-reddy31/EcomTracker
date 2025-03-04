@@ -6,6 +6,20 @@ import { connectToDB } from "../mongoose";
 import { scrapeAmazonProduct } from "../scraper";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { generateEmailBody, sendEmail } from "../nodemailer";
+// import cron from "node-cron";
+// import { GET } from "../../app/api/cron/route";
+
+// console.log("Next Js application is started");
+
+// cron.schedule("*/5 * * * * *", async () => {
+//   console.log("Running product scraping task at scheduled interval");
+//   try {
+//     await GET();
+//     console.log("Product scraping and notification completed successfully.");
+//   } catch (error) {
+//     console.error("Error during scheduled task:", error);
+//   }
+// });
 
 export async function scrapeAndStoreProduct(productUrl: string) {
   if (!productUrl) return;
@@ -23,12 +37,12 @@ export async function scrapeAndStoreProduct(productUrl: string) {
     let productData = scrapedProduct;
     const existingProduct = await Product.findOne({ url: scrapedProduct.url });
 
-    const checkExistingTime = Date.now();
-    console.log(
-      `[Metrics] Time to check existing product: ${
-        checkExistingTime - startTime
-      }ms`
-    );
+    // const checkExistingTime = Date.now();
+    // console.log(
+    //   `[Metrics] Time to check existing product: ${
+    //     checkExistingTime - startTime
+    //   }ms`
+    // );
 
     if (existingProduct) {
       const updatedPriceHistory: any = [
@@ -143,6 +157,10 @@ export async function getSimilarProducts(productId: string) {
   } catch (error) {
     console.log(error);
   }
+}
+
+interface User {
+  email: string;
 }
 
 export async function adduserEmailToProduct(

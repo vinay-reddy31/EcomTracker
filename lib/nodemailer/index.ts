@@ -57,6 +57,8 @@ export async function generateEmailBody(
         <div>
           <h4>Hey, ${product.title} has reached its lowest price ever!!</h4>
           <p>Grab the product <a href="${product.url}" target="_blank" rel="noopener noreferrer">here</a> now.</p>
+            <img src="${product.image}" alt="Product Image" style="max-width: 100%;" />
+            <p>Happy Shopping!</p>
         </div>
       `;
       break;
