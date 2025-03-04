@@ -14,7 +14,12 @@ interface Props {
   params: { id: string };
 }
 
-const ProductDetails = async ({ params: { id } }: Props) => {
+const ProductDetails = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
   const product: Product = await getProductById(id);
 
   if (!product) redirect("/");
